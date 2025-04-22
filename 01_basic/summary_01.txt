@@ -1,0 +1,10 @@
+primitive data  type :
+    String, Number, null, boolean, udefined, Symbol, BigInt
+
+
+Refrence (non primitive):
+    Array ,Object ,Function
+
+
+to use BigInt just add n after the value
+    const bigNumber = 352659585n

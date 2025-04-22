@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper</title>
+</head>
+
+<body>
+    <p>Lets Play Rock Paper Shoot</p>
+    <button onclick="playgame('rock')">Rock</button>
+    <button onclick="playgame('paper')">Paper</button>
+    <button onclick="playgame('Scissors')">Scissors</button>
+</body> 
+<script>
+
+    function playgame(playermove) {
+        const randomNumber = Math.random();
+
+        let computerMove = '';
+
+        if (randomNumber <= 0.34) {
+            computerMove = 'rock'
+        }
+        else if (randomNumber <= 0.67) {
+            computerMove = 'paper'
+        }
+        else {
+            computerMove = 'Scissors'
+        }
+
+        let result='';
+
+        if (playermove === computerMove) {
+            result = 'Draw';
+        }
+        else if(
+            (playermove === 'rock' && computerMove === 'Scissors') ||
+            (playermove === 'paper' && computerMove === 'rock') ||
+            (playermove === 'Scissors' && computerMove === 'paper')
+        ){
+            result='You win';
+        }
+        else{
+            result='You Lose'
+        }
+
+        alert(`Your move is ${playermove} and computer move is ${computerMove} and result is ${result}`);
+    }
+</script>
+
+</html>

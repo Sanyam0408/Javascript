@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper</title>
+</head>
+
+<body>
+    <p>Lets Play Rock Paper Shoot</p>
+    <button onclick="playgame('rock')">Rock</button>
+    <button onclick="playgame('paper')">Paper</button>
+    <button onclick="playgame('Scissors')">Scissors</button>
+    <button onclick="resetscore()">Reset score</button>
+</body> 
+<script>
+    let win=0,draw=0,lose=0;
+
+    function playgame(playermove) {
+        const randomNumber = Math.random();
+
+        let computerMove = '';
+        if (randomNumber <= 0.34) {
+            computerMove = 'rock'
+        }
+        else if (randomNumber <= 0.67) {
+            computerMove = 'paper'
+        }
+        else {
+            computerMove = 'Scissors'
+        }
+
+        let result='';
+
+        if (playermove === computerMove) {
+            result = 'Draw';
+            draw++;
+        }
+        else if(
+            (playermove === 'rock' && computerMove === 'Scissors') ||
+            (playermove === 'paper' && computerMove === 'rock') ||
+            (playermove === 'Scissors' && computerMove === 'paper')
+        ){
+            result='You win';
+            win++;
+        }
+        else{
+            result='You Lose'
+            lose++;
+        }
+
+        alert(`Your move is ${playermove} and computer move is ${computerMove} and result is ${result}.Win:${win}, Lose:${lose}, Draw:${draw}`);
+    }
+
+    function resetscore(){
+        win=lose=draw=0;
+        alert(`Score has been reset`);
+    }
+</script>
+
+</html>
